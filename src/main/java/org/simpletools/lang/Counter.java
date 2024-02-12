@@ -9,11 +9,14 @@ public class Counter {
         this.max = max;
     }
 
+    /**
+     * Increments the value by one
+     */
     public void increment() {
         incrementBy(1);
     }
 
-    public void incrementBy(long valueToAdd) {
+    public synchronized void incrementBy(long valueToAdd) {
         long newValue = value + valueToAdd;
         value = newValue <= max ? newValue : 0;
     }
